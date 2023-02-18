@@ -11,14 +11,16 @@
  */
 int main(void)
 {
-int n1, n2;
-for (n1 = 0; n1 < 10; n1++)
+int num1, num2;
+for (num1 = 0; num1 < 9; num1++)
 {
-for (n2 = n1 + 1; n2 < 10; n2++)
+for (num2 = num1 + 1; num2 <= 9; num2++)
 {
-putchar(n1 + '0');
-putchar(n2 + '0');
-if (n1 != 8 || n2 != 9)
+putchar((num1 % 10) + '0');
+putchar(',');
+putchar(' ');
+putchar((num2 % 10) + '0');
+if (num1 != 8 || num2 != 9)
 {
 putchar(',');
 putchar(' ');
