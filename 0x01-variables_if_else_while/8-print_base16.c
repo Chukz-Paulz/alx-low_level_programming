@@ -1,4 +1,3 @@
-int main(void)
 /**
  * main - Entry point
  *
@@ -7,6 +6,7 @@ int main(void)
  *
  * Return: Always 0 (Success)
  */
+int main(void)
 {
 int num = 0;
 char letter = 'a';
