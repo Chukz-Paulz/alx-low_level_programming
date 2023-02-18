@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  *
- * This program prints all possible combinations of two two-digit numbers.
+ * Prints all possible combinations of two two-digit numbers.
  * The numbers range from 0 to 99 and are separated by a space.
  * All numbers are printed with two digits, with 1 printed as 01.
  * The combination of numbers is separated by comma, followed by a space.
