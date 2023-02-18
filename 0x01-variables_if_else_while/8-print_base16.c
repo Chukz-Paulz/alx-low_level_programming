@@ -8,18 +8,11 @@
  */
 int main(void)
 {
-int num = 0;
-char letter = 'a';
-while (num < 10)
-{
-putchar(num + '0');
-num++;
-}
-while (letter < 'g')
-{
-putchar(letter);
-letter++;
-}
+int i;
+for (i = 0; i < 10; i++)
+putchar(i + '0');
+for (i = 'a'; i < 'g'; i++)
+putchar(i);
 putchar('\n');
 return (0);
 }
