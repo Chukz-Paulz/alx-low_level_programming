@@ -5,13 +5,25 @@
  */
 void print_alphabet(void)
 {
-    char letter = 'a';
+char letter = 'a';
+
 while (letter <= 'z')
 {
-putchar(letter);
+_putchar(letter);
 letter++;
 }
 
 _putchar('\n');
+}
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+print_alphabet();
+return (0);
 }
 
