@@ -9,20 +9,30 @@
  */
 void print_times_table(int n)
 {
-if (n > 15 || n < 0)
-return;
+int i, j, result;
 
-for (int i = 0; i <= n; i++) {
-for (int j = 0; j <= n; j++) {
-int product = i * j;
-if (j != 0)
+if (n > 15 || n < 0) {
+return;
+}
+
+for (i = 0; i <= n; i++) {
+for (j = 0; j <= n; j++) {
+result = i * j;
+if (j != 0) {
 printf(", ");
-if (product < 10)
-printf("  %d", product);
-else if (product < 100)
-printf(" %d", product);
-else
-printf("%d", product);
+}
+if (result < 10 && j != 0) {
+printf("   ");
+} 
+else if (result < 100) 
+{
+printf("  ");
+} 
+else 
+{
+printf(" ");
+}
+printf("%d", result);
 }
 printf("\n");
 }
