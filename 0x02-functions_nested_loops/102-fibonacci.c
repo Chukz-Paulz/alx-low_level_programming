@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  * main - Prints the first 50 Fibonacci numbers
  *
@@ -7,22 +8,21 @@
 
 int main(void)
 {
-int a = 1, b = 2, c, i;
+int i;
+unsigned long int fib1 = 1, fib2 = 2, fib_sum;
 
-printf("%d, %d, ", a, b);
+printf("%lu, %lu", fib1, fib2);
 
-for (i = 3; i <= 50; i++)
+for (i = 2; i < 50; i++)
 {
-c = a + b;
-printf("%d", c);
-if (i != 50)
-{
-printf(", ");
+fib_sum = fib1 + fib2;
+printf(", %lu", fib_sum);
+fib1 = fib2;
+fib2 = fib_sum;
 }
-a = b;
-b = c;
-}
+
 printf("\n");
 return (0);
 }
+
 
