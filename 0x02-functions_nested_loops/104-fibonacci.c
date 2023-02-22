@@ -10,19 +10,20 @@
 int main(void)
 {
 int n = 98;
-int a = 1;
-int b = 2;
-int sum = 0;
+int a = 1, b = 2, c;
 
 printf("%d, %d", a, b);
+
 for (int i = 3; i <= n; i++)
 {
-sum = a + b;
-printf(", %d", sum);
+c = a + b;
+printf(", %d", c);
 a = b;
-b = sum;
+b = c;
 }
+
 printf("\n");
+
 return (0);
 }
 
