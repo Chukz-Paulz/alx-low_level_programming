@@ -2,6 +2,7 @@
 
 /**
  * print_alphabet - prints the alphabet in lowercase followed by a new line
+ * Return: Always 0.
  */
 void print_alphabet(void)
 {
@@ -15,15 +16,3 @@ letter++;
 
 _putchar('\n');
 }
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-print_alphabet();
-return (0);
-}
-
