@@ -5,25 +5,24 @@
  * starting with 1 and 2,
  * separated by comma and space, followed by a new line.
  *
- * Return: Always (0).
+ * Return: always (0).
  */
-
 int main(void)
 {
-int i;
-unsigned long curr = 1, prev = 0, temp;
-printf("1, 2, ");
-for (i = 2; i < 98; i++)
+int n = 98;
+int a = 1;
+int b = 2;
+int sum = 0;
+
+printf("%d, %d", a, b);
+for (int i = 3; i <= n; i++)
 {
-temp = curr;
-curr = curr + prev;
-prev = temp;
-printf("%lu", curr);
-if (i < 97)
-{
-printf(", ");
-}
+sum = a + b;
+printf(", %d", sum);
+a = b;
+b = sum;
 }
 printf("\n");
 return (0);
 }
+
