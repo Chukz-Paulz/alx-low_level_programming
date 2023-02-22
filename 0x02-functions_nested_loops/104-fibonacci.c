@@ -11,20 +11,17 @@ int main(void)
 int n = 98;
 int a = 1, b = 2;
 
-printf("%d, %d, ", a, b);
+printf("%d, %d", a, b);
 
 for (int i = 3; i <= n; i++)
 {
 int c = a + b;
-printf("%d", c);
-if (i < n)
-{
-printf(", ");
-}
+printf(", %d", c);
 a = b;
 b = c;
 }
 
 printf("\n");
+
 return (0);
 }
