@@ -3,36 +3,27 @@
 
 /**
  * print_times_table - prints the n times table, starting with 0
- * @n: the highest number to print the times table for
+ * @n: integer to generate times table
  *
  * Return: void
  */
 void print_times_table(int n)
 {
-int i, j, result;
+int i, j, res;
 
-if (n > 15 || n < 0) {
+if (n > 15 || n < 0)
 return;
-}
 
-for (i = 0; i <= n; i++) {
-for (j = 0; j <= n; j++) {
-result = i * j;
-if (j != 0) {
-printf(", ");
-}
-if (result < 10 && j != 0) {
-printf("   ");
-} 
-else if (result < 100) 
+for (i = 0; i <= n; i++)
 {
-printf("  ");
-} 
-else 
+for (j = 0; j <= n; j++)
 {
-printf(" ");
-}
-printf("%d", result);
+res = i * j;
+
+if (j == 0)
+printf("%d", res);
+else
+printf(",%3d", res);
 }
 printf("\n");
 }
