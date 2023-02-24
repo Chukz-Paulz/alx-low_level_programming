@@ -1,39 +1,10 @@
-#include <unistd.h>
-
+#include <stdio.h>
 /**
- * print_number - print an integer to stdout
- * @n: the integer to print
+ * main - prints prime factors of 612852475143
+ *
+ * Return: Always 0 (Success)
  */
-void print_number(long n)
-{
-if (n < 0) 
-{
-n = -n;
-write(1, "-", 1);
-}
-if (n / 10) 
-{
-print_number(n / 10);
-}
-write(1, &"0123456789"[n % 10], 1);
-}
-
 int main(void)
 {
-long num = 612852475143;
-long i;
-
-for (i = 2; i <= num; i++) 
-{
-while (num % i == 0) 
-{
-num /= i;
+	return (0);
 }
-}
-
-print_number(i);
-write(1, "\n", 1);
-
-return (0);
-}
-
