@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-/**
- * main - prints prime factors of 612852475143
- *
- * Return: Always 0 (Success)
- */
+#include "main.h"
 
 int main(void)
 {
@@ -15,6 +9,7 @@ while (num % 2 == 0)
 {
 num /= 2;
 }
+
 
 for (i = 3; i <= sqrt(num); i += 2) 
 {
@@ -29,7 +24,12 @@ if (num > 1)
 i = num;
 }
 
-printf("%d\n", i);
+while (i > 0) 
+{
+_putchar(i % 10 + '0');
+i /= 10;
+}
+_putchar('\n');
 
 return (0);
 }
