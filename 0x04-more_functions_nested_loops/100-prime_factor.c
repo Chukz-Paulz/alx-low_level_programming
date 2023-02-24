@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-
 /**
  * main - prints prime factors of 612852475143
  *
@@ -12,9 +11,15 @@ int main(void)
 int num = 612852475143;
 int i;
 
-for (i = 2; i <= sqrt(num); i++) 
+while (num % 2 == 0) 
 {
-while (num % i == 0) {
+num /= 2;
+}
+
+for (i = 3; i <= sqrt(num); i += 2) 
+{
+while (num % i == 0) 
+{
 num /= i;
 }
 }
@@ -24,7 +29,8 @@ if (num > 1)
 i = num;
 }
 
-printf("%ld\n", i);
+printf("%d\n", i);
+
 return (0);
 }
 
