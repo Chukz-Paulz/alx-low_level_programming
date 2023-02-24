@@ -9,8 +9,8 @@
 
 int main(void)
 {
-long num = 612852475143;
-long i;
+int num = 612852475143;
+int i;
 
 for (i = 2; i <= sqrt(num); i++) 
 {
