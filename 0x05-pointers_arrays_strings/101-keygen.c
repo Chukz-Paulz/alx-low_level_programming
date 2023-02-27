@@ -1,79 +1,35 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-/** Function to randomly generates password
- * of length N
- * return: 0 always
+/**
+ * main - program that generates random valid
+ * passwords for the program 101-crackme
+ *
+ * Return: Always 0 (Success)
  */
-void randomPasswordGeneration(int N)
+int main(void)
 {
-	/* Initialize counter*/
-	int i = 0;
+	int pass[100];
+	int i, sum, n;
 
-	int randomizer = 0;
+	sum = 0;	
 
-	/* Seed the random-number generator*/
-	/* with current time so that the*/
-	/*numbers will be different every time*/
-	srand((unsigned int)(time(NULL)));
+	srand(time(NULL));
 
-	/*Array of numbers*/
-	char numbers[] = "0123456789";
-
-	/* Array of small alphabets*/
-	char letter[] = "abcdefghijklmnoqprstuvwyzx";
-
-	/* Array of capital alphabets*/
-	char LETTER[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
-
-	/*Array of all the special symbols*/
-	char symbols[] = "!@#$^&*?";
-
-	/*Stores the random password*/
-	char password[N];
-
-	/* To select the randomizer*/
-	/*inside the loop*/
-	randomizer = rand() % 4;
-
-	/*Iterate over the range [0, N]*/
-	for (i = 0; i < N; i++) {
-
-	if (randomizer == 1) {
-		password[i] = numbers[rand() % 10];
-		randomizer = rand() % 4;
-		printf("%c", password[i]);
-	}
-	else if (randomizer == 2) {
-		password[i] = symbols[rand() % 8];
-		randomizer = rand() % 4;
-		printf("%c", password[i]);
-	}
-	else if (randomizer == 3) {
-		password[i] = LETTER[rand() % 26];
-		randomizer = rand() % 4;
-		printf("%c", password[i]);
-	}
-		else
+	for (i = 0; i < 100; i++)
+	{
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
 		{
-			password[i] = letter[rand() % 26];
-			randomizer = rand() % 4;
-			printf("%c", password[i]);
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
 		}
 	}
-}
-
-/* Driver Code*/
-int main()
-{
-    /*Length of the password to */
-	/*be generated*/
-	int N = 10;
-
-	/* Function Call*/
-	randomPasswordGeneration(N);
 
 	return (0);
 }
