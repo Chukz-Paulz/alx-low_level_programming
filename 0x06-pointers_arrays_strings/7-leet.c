@@ -13,7 +13,7 @@ char *leet(char *s)
 	char number[] = "4307104310";
 
 		for (i = 0; s[i] != '\0'; i++)
-		{		
+		{
 			for (j = 0; letter[j] != '\0'; j++)
 			{
 				if (s[i] == letter[j])
