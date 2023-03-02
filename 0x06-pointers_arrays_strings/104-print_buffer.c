@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include <ctype.h>
 
 /**
- * print_buffer - Prints a buffer
- * @b: The buffer to print
- * @size: The number of bytes to print
+ * print_buffer - Prints the content of a buffer.
+ * @b: A pointer to the buffer to be printed.
+ * @size: The number of bytes to be printed from the buffer.
+ *
+ * Return: Nothing.
  */
 void print_buffer(char *b, int size)
 {
@@ -16,8 +19,7 @@ return;
 }
 
 for (i = 0; i < size; i += 10)
-{
-printf("%08x: ", (unsigned long)i);
+printf("%08x: ", i);
 
 for (j = i; j < i + 10; j++)
 {
@@ -26,15 +28,17 @@ printf("%02x", *(b + j));
 else
 printf("  ");
 
-if (j % 2 != 0)
+if (j % 2 == 1)
 printf(" ");
+
 }
 
-printf(" ");
-
-for (j = i; j < i + 10 && j < size; j++)
+for (j = i; j < i + 10; j++)
 {
-if (*(b + j) >= 32 && *(b + j) <= 126)
+if (j >= size)
+break;
+
+if (isprint(*(b + j)))
 printf("%c", *(b + j));
 else
 printf(".");
@@ -42,4 +46,4 @@ printf(".");
 
 printf("\n");
 }
-}
+
