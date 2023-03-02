@@ -17,7 +17,7 @@ return;
 
 for (i = 0; i < size; i += 10)
 {
-printf("%08lx: ", (unsigned long)i);
+printf("%08x: ", (unsigned long)i);
 
 for (j = i; j < i + 10; j++)
 {
