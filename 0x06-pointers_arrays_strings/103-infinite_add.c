@@ -1,55 +1,65 @@
 #include "main.h"
 #include <stdio.h>
-#include <string.h>
 
-/**
- * infinite_add - adds two numbers
- * @n1: the first number
- * @n2: the second number
- * @r: the buffer to store the result
- * @size_r: the size of the buffer
- *
- * Return: a pointer to the result or 0 if the result can't be stored in r
- */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int i, j, k, carry, len1, len2;
+    int i = 0, j = 0, k = 0, carry = 0, sum = 0;
+    int n1_len = 0, n2_len = 0, max_len = 0;
 
-    len1 = strlen(n1);
-    len2 = strlen(n2);
-
-    if (len1 > size_r || len2 > size_r)
-        return 0;
-
-    i = len1 - 1;
-    j = len2 - 1;
-    k = 0;
-    carry = 0;
-
-    while (i >= 0 || j >= 0 || carry)
+    /* Calculate length of n1 */
+    while (n1[n1_len] != '\0') 
     {
-        int digit1 = i >= 0 ? n1[i] - '0' : 0;
-        int digit2 = j >= 0 ? n2[j] - '0' : 0;
-
-        int sum = digit1 + digit2 + carry;
-
-        if (k >= size_r)
-            return 0;
-
-        r[k++] = sum % 10 + '0';
-        carry = sum / 10;
-
-        i--;
-        j--;
+        n1_len++;
     }
 
-    r[k] = '\0';
-
-    for (i = 0, j = k - 1; i < j; i++, j--)
+    /* Calculate length of n2*/
+    while (n2[n2_len] != '\0')
     {
-        char tmp = r[i];
-        r[i] = r[j];
-        r[j] = tmp;
+        n2_len++;
+    }
+
+    /* Calculate maximum length*/
+    max_len = (n1_len > n2_len) ? n1_len : n2_len;
+
+    /* Check if result can fit in buffer */
+    if (max_len + 1 > size_r) 
+    {
+        return 0;
+    }
+
+    /* Add numbers from right to left*/
+    for (i = n1_len - 1, j = n2_len - 1, k = max_len; k >= 0; i--, j--, k--) 
+    {
+        sum = carry;
+        if (i >= 0) 
+	{
+            sum += n1[i] - '0';
+        }
+        if (j >= 0) 
+	{
+            sum += n2[j] - '0';
+        }
+        carry = sum / 10;
+        r[k] = (sum % 10) + '0';
+    }
+
+    /* Add carry if necessary*/
+    if (carry != 0) {
+        if (max_len + 2 > size_r) 
+	{
+            return 0;
+        }
+        for (i = max_len + 1; i >= 1; i--) 
+	{
+            r[i] = r[i - 1];
+        }
+        r[0] = carry + '0';
+    }
+
+    /* Add terminating null character */
+    if (max_len + 1 <= size_r) 
+    {
+        r[max_len + 1] = '\0';
     }
 
     return r;
