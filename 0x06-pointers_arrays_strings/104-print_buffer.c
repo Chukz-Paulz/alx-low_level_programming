@@ -17,7 +17,7 @@ return;
 
 for (i = 0; i < size; i += 10)
 {
-printf("%08x: ", i);
+printf("%08lx: ", (unsigned long)i);
 
 for (j = i; j < i + 10; j++)
 {
@@ -30,11 +30,10 @@ if (j % 2 != 0)
 printf(" ");
 }
 
-for (j = i; j < i + 10; j++)
-{
-if (j >= size)
-break;
+printf(" ");
 
+for (j = i; j < i + 10 && j < size; j++)
+{
 if (*(b + j) >= 32 && *(b + j) <= 126)
 printf("%c", *(b + j));
 else
@@ -44,4 +43,3 @@ printf(".");
 printf("\n");
 }
 }
-
