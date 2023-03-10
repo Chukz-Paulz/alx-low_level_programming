@@ -1,6 +1,7 @@
-#ifndef _MAIN_HEADER
-#define _MAIN_HEADER
+#ifndef MAIN_H
+#define MAIN_H
 
+int main(void);
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
