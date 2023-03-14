@@ -37,10 +37,11 @@ int count_words(char *str)
 }
 
 /**
- * strtow - Splits a string into words
+ * strtow - Splits a string into word
  * @str: The string to split
  *
- * Return: A pointer to an array of strings (words), or NULL if str == NULL or str == ""
+ * Return: A pointer to an array of strings (words), or 
+ * NULL if str == NULL or str == ""
  */
 char **strtow(char *str)
 {
