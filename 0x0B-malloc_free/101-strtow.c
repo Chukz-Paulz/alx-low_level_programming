@@ -1,25 +1,97 @@
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
- * print_tab - Prints an array of strings
- * @tab: The array to print
+ * count_words - Counts the number of words in a string
+ * @str: The string to count the words in
  *
- * Return: nothing
+ * Return: The number of words in the string
  */
-void print_tab(char **tab)
+int count_words(char *str)
 {
-	int i, j;
+	int i, count = 0, in_word = 0;
 
-	for (i = 0; tab[i] != NULL; ++i)
-	{
-		for (j = 0; tab[i][j] != '\0'; ++j)
+	for (i = 0; str[i] != '\0'; ++i)
 		{
-			_putchar(tab[i][j]);
+		if (str[i] == ' ')
+		{
+			if (in_word)
+			{
+				++count;
+				in_word = 0;
+			}
 		}
-		_putchar('\n');
-
+		else
+		{
+			in_word = 1;
+		}
 	}
-	return (1);
+
+	if (in_word)
+	{
+		++count;
+	}
+
+	return count;
 }
 
+/**
+ * strtow - Splits a string into words
+ * @str: The string to split
+ *
+ * Return: A pointer to an array of strings (words), or NULL if str == NULL or str == ""
+ */
+char **strtow(char *str)
+{
+	char **words;
+	int i, j, k, num_words, word_len;
+
+	if (str == NULL || *str == '\0')
+	{
+		return NULL;
+	}
+
+	num_words = count_words(str);
+	words = malloc(sizeof(char *) * (num_words + 1));
+
+	if (words == NULL)
+	{
+		return NULL;
+	}
+
+	for (i = 0, j = 0; i < num_words; ++i)
+	{
+		while (str[j] == ' ')
+		{
+			++j;
+		}
+
+		word_len = 0;
+
+		while (str[j + word_len] != ' ' && str[j + word_len] != '\0')
+		{
+			++word_len;
+		}
+
+		words[i] = malloc(sizeof(char) * (word_len + 1));
+
+		if (words[i] == NULL)
+		{
+		for (k = 0; k < i; ++k)
+		{
+			free(words[k]);
+		}
+		free(words);
+		return NULL;
+		}
+
+		strncpy(words[i], &str[j], word_len);
+		words[i][word_len] = '\0';
+		j += word_len;
+	}
+
+	words[num_words] = NULL;
+
+	return words;
+}
