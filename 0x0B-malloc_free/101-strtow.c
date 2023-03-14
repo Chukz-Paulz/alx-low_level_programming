@@ -33,14 +33,14 @@ int count_words(char *str)
 		++count;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
  * strtow - Splits a string into word
  * @str: The string to split
  *
- * Return: A pointer to an array of strings (words), or 
+ * Return: A pointer to an array of strings (words), or
  * NULL if str == NULL or str == ""
  */
 char **strtow(char *str)
@@ -50,7 +50,7 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	num_words = count_words(str);
@@ -58,7 +58,7 @@ char **strtow(char *str)
 
 	if (words == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	for (i = 0, j = 0; i < num_words; ++i)
@@ -94,5 +94,5 @@ char **strtow(char *str)
 
 	words[num_words] = NULL;
 
-	return words;
+	return (words);
 }
