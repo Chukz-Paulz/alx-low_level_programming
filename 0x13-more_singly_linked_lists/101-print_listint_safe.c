@@ -1,32 +1,45 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * print_listint_safe - Prints a linked list
- * @head: A pointer to the head of the list
+ * print_listint_safe - Prints a linked list of integers
  *
- * Return: The number of nodes in the list
+ * @head: Pointer to the first node in the linked list
+ *
+ * Return: The number of nodes in the linked list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-    const listint_t *current = head;
-    const listint_t *temp;
     size_t count = 0;
+    const listint_t *turtle, *hare;
 
-    while (current != NULL)
+    if (!head)
+        exit(98);
+
+    turtle = hare = head;
+    while (turtle && hare && hare->next)
     {
-        printf("[%p] %d\n", (void *) current, current->n);
-        count++;
-        temp = current;
-        current = current->next;
-
-        /* Check if current has been visited before */
-        if (temp <= current)
+        turtle = turtle->next;
+        hare = hare->next->next;
+        if (turtle == hare)
         {
-            printf("-> [%p] %d\n", (void *) current, current->n);
-            exit(98);
+            hare = head;
+            while (turtle != hare)
+            {
+                count++;
+                printf("[%p] %d\n", (void *)hare, hare->n);
+                hare = hare->next;
+                turtle = turtle->next;
+            }
+            printf("[%p] %d\n", (void *)hare, hare->n);
+            return (count);
         }
+    }
+
+    while (head)
+    {
+        count++;
+        printf("[%p] %d\n", (void *)head, head->n);
+        head = head->next;
     }
 
     return (count);
