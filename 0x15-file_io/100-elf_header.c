@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
  * check_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
@@ -256,7 +255,6 @@ void close_elf(int elf)
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
- * free header
  * Return: 0 on success.
  *
  * Description: If the file is not an ELF File or
@@ -264,7 +262,6 @@ void close_elf(int elf)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	/*Declarations*/
 	Elf64_Ehdr *header;
 	int r, o;
 
@@ -301,10 +298,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
 
-	/*free header*/
 	free(header);
 	close_elf(o);
-	/*returns 0*/
 	return (0);
 }
 
