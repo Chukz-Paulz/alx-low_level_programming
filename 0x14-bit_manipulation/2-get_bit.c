@@ -14,7 +14,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index > bit)
 		return (-1);
 
-	mask = desk << index;
+	desk = desk << index;
 
 	if (n & desk)
 		return (1);
