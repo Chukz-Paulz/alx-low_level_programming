@@ -3,7 +3,7 @@
  * flip_bits - returns the number of bits you would need to flip
  * to get from one number to another
  * @n: the first number
- * @m: the second number
+ * @o: the second number
  * Return: the number of flipped bits
  */
 
@@ -11,14 +11,19 @@ unsigned int flip_bits(unsigned long int n, unsigned long int o)
 {
 	unsigned int xor = n ^ o;
 	int count = 0;
+	int j;
+	unsigned long int current;
 
 	if (!n || !o)
 		return (0);
-	while (xor)
+
+	for (j = 63; j >= 0; j--)
 	{
-		if (xor & 1)
+		current = exclusive >> j;
+		if (current & 1)
 			count++;
-		xor = xor >> 1;
 	}
+
 	return (count);
 }
+
