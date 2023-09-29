@@ -21,8 +21,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 	maskit = 1 << index;
 
 	*n = maskit | *n;
-	
+
 	/*Return Value 1*/
-	
+
 	return (1);
 }
