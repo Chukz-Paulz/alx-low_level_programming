@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * print_binary - prints decimal as binary
  * @n: long integer
@@ -32,12 +33,12 @@ void print_binary(unsigned long int n)
 		z = (n >> size) & 1;
 
 		if (flag == 1)
-			_putchar(z + '0');
+			putchar(z + '0');
 		else
 		{
 			if (z == 1)
 			{
-				_putchar(z + '0');
+				putchar(z + '0');
 				flag = 1;
 			}
 		}
