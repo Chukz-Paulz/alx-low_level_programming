@@ -13,15 +13,15 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int decimal_val = 0;
 
 	if (!b)
-	return 0;
+	return (0);
 	/*Loop*/
-    for (a = 0; b[a]; a++)
+	for (a = 0; b[a]; a++)
 	{
 		if (b[a] != '0' && b[a] != '1')
-		return 0;
+		return (0);
 		decimal_val = decimal_val * 2 + (b[a] - '0');
 	}
 	/*Return value*/
 
-	return decimal_val;
+	return (decimal_val);
 }
