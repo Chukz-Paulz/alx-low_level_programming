@@ -6,7 +6,8 @@
 #include <sys/stat.h>
 
 /**
- * append_text_to_file - appends text to a file or creates it with 600 permissions
+ * append_text_to_file - appends text to a file or
+ * creates it with 600 permissions
  * @filename: name of the file
  * @text_content: text to be appended to the file
  *
