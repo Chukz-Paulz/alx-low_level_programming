@@ -8,11 +8,12 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	if (!head || !*head)
-	return (-1);
-
 	/*declaration*/
 	dlistint_t *current = *head;
+	unsigned int counter;
+
+	if (!head || !*head)
+	return (-1);
 
 	if (index == 0)
 	{
@@ -23,11 +24,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	return (1);
 	}
 
-	for (unsigned int counter = 0; counter < index && current; counter++)
+	for (counter = 0; counter < index && current; counter++)
 	{
 		if (current->next == NULL)
 			return (-1);
-		/*Declaration*/
+	/*Declaration*/
 		current = current->next;
 	}
 
