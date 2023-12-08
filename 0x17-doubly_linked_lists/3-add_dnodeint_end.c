@@ -9,10 +9,10 @@
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	/*Declaration*/
-	dlistint_t *new_node = malloc(sizeof(dlistint_t))
+	dlistint_t *new_node = malloc(sizeof(dlistint_t));
 
 	if (!head)
-	return (NULL);
+		return (NULL);
 
 	if (!new_node)
 		return (NULL);
