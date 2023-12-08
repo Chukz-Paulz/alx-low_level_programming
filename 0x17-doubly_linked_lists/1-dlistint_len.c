@@ -1,28 +1,20 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - Inserts a new node at the beginning of a doubly linked list
- * @head: Pointer to the head of the list
- * @n: The data integer for the new node
- * Return: Pointer to the new node
+ * dlistint_len - Return number of elements in dll
+ * @h: Pointer to struct of ddl
+ * Return: The amount of elements in dll
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+size_t dlistint_len(const dlistint_t *h)
 {
 	/*Declaration*/
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+	size_t count_nodes = 0;
 
-	if (new_node == NULL)
-		return (NULL);
+	while (h)
+	{
+		h = h->next;
+		count_nodes++;
+	}
 
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = *head;
-
-	if (*head != NULL)
-		(*head)->prev = new_node;
-
-	*head = new_node;
-
-	/*Returns new node*/
-	return (new_node);
+	return (count_nodes);
 }
