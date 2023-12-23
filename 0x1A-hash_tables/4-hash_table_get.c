@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_get - Retrieves the value associated with
+ * hash_table_get - This retrieves the value associated with
  *                  a key in a hash table.
  * @ht: A pointer to the hash table.
  * @key: The key to get the value of.
@@ -9,22 +9,22 @@
  * Return: If the key cannot be matched - NULL.
  *         Otherwise - the value associated with key in ht.
  */
-char *hash_table_get(const hash_table_t *ht, const char *key)
+char *hash_table_get(const hash_table_t *hash_table, const char *key)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-        hash_node_t *current = ht->array[index];
-	
-	if (ht == NULL || key == NULL || *key == '\0')
+	/*Declaration*/
+	hash_node_t *current_node;
+	unsigned long int index;
+
+	if (hash_table == NULL || key == NULL || *key == '\0')
 		return (NULL);
 
-	if (index >= ht->size)
+	index = key_index((const unsigned char *)key, hash_table->size);
+	if (index >= hash_table->size)
 		return (NULL);
 
-	/* Traverse the linked list at the calculated index to find the key */
-	/*hash_node_t *current = ht->array[index];*/
-	while (current && strcmp(current->key, key) != 0)
-		current = current->next;
+	current_node = hash_table->array[index];
+	while (current_node && strcmp(current_node->key, key) != 0)
+		current_node = current_node->next;
 
-	/* Return the value if key is found, otherwise return NULL */
-	return (current == NULL ? NULL : current->value);
+	return ((current_node == NULL) ? NULL : current_node->value);
 }
